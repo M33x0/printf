@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 /**
- *_print_string - Print String
+ *_print_str - Print String
  *@arg: Input
  */
 int _print_str(va_list arg)

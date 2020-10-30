@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * _print_reverse - prints a string in reverse
+ * _print_reverse_str - prints a string in reverse
  * @arg: argument
  */
 int _print_reverse_str(va_list arg)
