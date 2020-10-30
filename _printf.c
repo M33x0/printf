@@ -1,7 +1,24 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdarg.h>
-
+#define MAC_A                \
+	{                        \
+		_putchar('%');       \
+		_putchar(format[i]); \
+		j += 2;              \
+		i++;                 \
+	}
+#define MAC_B                \
+	{                        \
+		_putchar(format[i]); \
+		j++;                 \
+		i++;                 \
+	}
+#define MAC_C             \
+	{                     \
+		j += choice(arg); \
+		i++;              \
+	}
 /**
  * _printf - Print anything
  * @format: string
@@ -19,9 +36,7 @@ int _printf(const char *format, ...)
 	{
 		while (format[i] != '%' && format[i] != '\0')
 		{
-			_putchar(format[i]);
-			j++;
-			i++;
+			MAC_B;
 		}
 		if (format[i] == '%' && format[i + 1] == '\0')
 			continue;
@@ -29,26 +44,18 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			for (; format[i] == ' '; i++)
-			;
+				;
 			if (format[i] == '\0')
 			{
 				return (j);
 			}
 			else
 			{
-			choice = get_spec_fn(&format[i]);
+				choice = get_spec_fn(&format[i]);
 				if (choice == NULL)
-				{
-					_putchar('%');
-					_putchar(format[i]);
-					j += 2;
-					i++;
-				}
+					MAC_A
 				else
-				{
-					j += choice(arg);
-					i++;
-				}
+					MAC_C
 			}
 		}
 	}
