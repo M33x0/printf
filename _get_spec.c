@@ -2,6 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+/**
+ * get_spec_fn - specifier
+ * @format: string
+ */
 int (*get_spec_fn(const char *format))(va_list)
 {
 	int i;
