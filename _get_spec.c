@@ -17,7 +17,7 @@ int (*get_spec_fn(const char *format))(va_list)
 
 	for (i = 0; cx[i].t != NULL; i++)
 	{
-		if (*format == *(cx[i].t))
+		if (format[i] == *(cx[i].t))
 		{
 			break;
 		}
